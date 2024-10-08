@@ -12,8 +12,12 @@ app.use(express.json());
 app.use(cors({
   origin: ["https://portfolio-client-liard-three.vercel.app"],
   methods: ["GET","POST","PUT","DELETE"],
+  allowedHeaders: "Content-Type, Authorization",  // Allow these headers
   credentials: true
 }));
+
+// Handle preflight request (OPTIONS)
+app.options('*', cors());  // Enable preflight across all routes
 
 // Routes
 app.use('/api/contact', contactRoutes);
