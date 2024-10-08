@@ -9,15 +9,17 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+
+// CORS Configuration
 app.use(cors({
-  origin: ["https://portfolio-client-liard-three.vercel.app"],
-  methods: ["GET","POST","PUT","DELETE"],
-  allowedHeaders: "Content-Type, Authorization",  // Allow these headers
-  credentials: true
+  origin: ["https://portfolio-client-liard-three.vercel.app"],  // Frontend origin
+  methods: ["GET","POST","PUT","DELETE", "OPTIONS"],  // Allow OPTIONS method too
+  allowedHeaders: "Content-Type, Authorization",  // Allow specific headers
+  credentials: true,  // Allow credentials if needed (cookies, etc.)
 }));
 
 // Handle preflight request (OPTIONS)
-app.options('*', cors());  // Enable preflight across all routes
+app.options('*', cors());  // Should be placed before routes
 
 // Routes
 app.use('/api/contact', contactRoutes);
