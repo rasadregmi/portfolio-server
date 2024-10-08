@@ -18,8 +18,10 @@ app.use(cors({
   credentials: true,  // Allow credentials if needed (cookies, etc.)
 }));
 
-// Handle preflight request (OPTIONS)
-app.options('*', cors());  // Should be placed before routes
+app.use(cors(corsOptions));
+
+// Preflight OPTIONS request handler
+app.options('*', cors(corsOptions)); 
 
 // Routes
 app.use('/api/contact', contactRoutes);
