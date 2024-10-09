@@ -11,17 +11,17 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // CORS Configuration
-app.use(cors({
-  origin: ["https://portfolio-client-liard-three.vercel.app"],  // Frontend origin
-  methods: ["GET","POST","PUT","DELETE", "OPTIONS"],  // Allow OPTIONS method too
+const corsOptions = {
+  origin: "https://portfolio-client-liard-three.vercel.app",  // Frontend origin
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Allow OPTIONS method
   allowedHeaders: "Content-Type, Authorization",  // Allow specific headers
-  credentials: true,  // Allow credentials if needed (cookies, etc.)
-}));
+  credentials: true  // Allow credentials (cookies, etc.) if needed
+};
 
 app.use(cors(corsOptions));
 
 // Preflight OPTIONS request handler
-app.options('*', cors(corsOptions)); 
+app.options('*', cors(corsOptions));  // Handle preflight requests globally
 
 // Routes
 app.use('/api/contact', contactRoutes);
