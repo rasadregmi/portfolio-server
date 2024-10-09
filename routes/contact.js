@@ -3,7 +3,7 @@ const router = express.Router();
 const Contact = require('../models/contact');
 
 // POST /api/contact
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
   const { username, phoneNumber, email, subject, message } = req.body;
 
   // Simple validation
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
       message,
     });
 
-    await newContact.save();
+    newContact.save();
     res.status(201).json({ msg: 'Message sent successfully!' });
   } catch (error) {
     console.error(error);
