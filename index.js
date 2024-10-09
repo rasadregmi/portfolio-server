@@ -12,7 +12,7 @@ const corsOptions = {
   origin: "https://www.rasadregmi.com.np", // Adjust to your frontend URL
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: false,
+  credentials: true,
 };
 
 // Middleware
