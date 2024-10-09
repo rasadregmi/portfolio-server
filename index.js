@@ -18,7 +18,7 @@ const corsOptions = {
   credentials: true  // Allow credentials (cookies, etc.) if needed
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Preflight OPTIONS request handler
 app.options('*', cors(corsOptions));  // Handle preflight requests globally
