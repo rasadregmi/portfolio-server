@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Contact = require('../models/contact');
 
+// OPTIONS /api/contact
+router.options('/', (req, res) => {
+  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.sendStatus(200); // Respond with 200 OK
+});
+
+
 // POST /api/contact
 router.post('/', async (req, res) => {
   const { username, phoneNumber, email, subject, message } = req.body;
