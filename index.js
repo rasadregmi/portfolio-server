@@ -18,10 +18,10 @@ const corsOptions = {
   credentials: true  // Allow credentials (cookies, etc.) if needed
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Preflight OPTIONS request handler
-app.options('*', cors());  // Handle preflight requests globally
+app.options('*', cors(corsOptions));  // Handle preflight requests globally
 
 // Routes
 app.use('/api/contact', contactRoutes);
