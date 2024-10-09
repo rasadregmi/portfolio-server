@@ -12,7 +12,7 @@ app.use(express.json());
 
 // CORS Configuration
 const corsOptions = {
-  origin: "*",  // Frontend origin
+  origin: "https://www.rasadregmi.com.np",  // Frontend origin
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  // Allow OPTIONS method
   allowedHeaders: "Content-Type, Authorization",  // Allow specific headers
   credentials: true  // Allow credentials (cookies, etc.) if needed
