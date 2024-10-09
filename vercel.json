@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api" }
+    { "source": "/api/(.*)", "destination": "https://portfolio-server-snowy-ten.vercel.app/api/contact" }
   ],
   "headers": [
     {
