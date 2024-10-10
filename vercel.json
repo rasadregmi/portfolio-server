@@ -1,7 +1,4 @@
 {
-  "rewrites": [
-    { "source": "/api/contact", "destination": "portfolio-server-snowy-ten.vercel.app/api/contact" }
-  ],
   "routes": [
     {
       "source": "/api/(.*)",
