@@ -1,15 +1,24 @@
 {
   "rewrites": [
-    { "source": "/api/contact", "destination": "portfolio-server-snowy-ten.vercel.app/api/contact" }
+    { "source": "/api/contact", "destination": "https://portfolio-server-snowy-ten.vercel.app/api/contact" }
   ],
-  "routes": [
+  "headers": [
     {
-      "src": "/api/(.*)",
-      "headers": {
-        "Access-Control-Allow-Origin": "https://www.rasadregmi.com.np",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization"
-      }
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://www.rasadregmi.com.np"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
     }
   ]
 }
