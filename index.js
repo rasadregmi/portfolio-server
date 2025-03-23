@@ -7,20 +7,8 @@ const contactRoutes = require('./routes/contact');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS Configuration
-const corsOptions = {
-  origin: "https://www.rasadregmi.com.np", // Adjust to your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
-
-// Middleware
-app.use(cors(corsOptions)); // Apply CORS middleware
 app.use(express.json()); // Parse JSON bodies
-
-// Preflight OPTIONS request handler for contact route
-app.options('/api/contact', cors(corsOptions)); // Handle preflight requests specifically for the contact route
+app.use(cors(({ origin: 'https://www.rasadregmi.com.np' }))); // Apply CORS middleware
 
 // Routes
 app.use('/api/contact', contactRoutes);
